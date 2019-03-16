@@ -296,6 +296,7 @@ def Adjust_player():
 #判断视频是否完成
 def Check_done():
     while True:
+        Click_next()
         if driver.page_source.find('<span data-bind="text: $root.i18nMessageText().finished">已看完</span>') == -1:
             progress = re.search(r'<span data-bind="text: pageElement.record\(\).viewProgress\(\)">(\d+).(\d+)</span>',driver.page_source)
             if not progress:
@@ -316,6 +317,9 @@ def Next_page():
             break
         except:
             pass
+    return Click_next()
+
+def Click_next():
     if driver.page_source.find('<span data-bind="text: i18nMessageText().nextChapter">继续下一章</span>') != -1:
         if choose_type == '-1' or choose_type == '0':
             print('\n下一章。\n')
@@ -355,7 +359,33 @@ def Next_page():
         return False
     elif driver.page_source.find('本页面还有题目没有完成，') != -1:
         Close_tips()
-        return True
+        if driver.page_source.find('<span data-bind="text: i18nMessageText().nextChapter">继续下一章</span>') != -1:
+            if choose_type == '-1' or choose_type == '0':
+                print('\n下一章。\n')
+                while True:
+                    try:
+                        driver.find_element_by_xpath('//span[@data-bind="text: i18nMessageText().nextChapter"]').click()
+                    except:
+                        pass
+                    if driver.page_source.find('<span data-bind="text: i18nMessageText().nextChapter">继续下一章</span>') != -1:
+                        continue
+                    else:
+                        break
+                return True
+            else:
+                print('\n本章结束。\n')
+                while True:
+                    try:
+                        driver.find_element_by_xpath('//span[@data-bind="text: i18nMessageText().stayHere"]').click()
+                    except:
+                        pass
+                    if driver.page_source.find('<span data-bind="text: i18nMessageText().stayHere">留在本页</span>') != -1:
+                        continue
+                    else:
+                        break
+                return False
+        else:
+            return True
     else:
         return True
 
@@ -424,6 +454,7 @@ if __name__ == '__main__':
                 Check_done()
             elif check_video == False:
                 if Next_page() == True:
+                    Click_next()
                     continue
                 else:
                     break
