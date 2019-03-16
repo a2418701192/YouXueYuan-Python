@@ -113,7 +113,7 @@ def Analysis_class():
 #选择课程
 def Choose_course():
     all_class = Analysis_class()
-    print('课程名称：')
+    print('\n课程名称：')
     for data in all_class:
         print(str(data) + '.' + all_class[data]['title'])
     choose = input('请选择编号：')
@@ -320,6 +320,9 @@ def Next_page():
     return Click_next()
 
 def Click_next():
+    Close_tips()
+    Close_guid()
+    Close_mune()
     if driver.page_source.find('<span data-bind="text: i18nMessageText().nextChapter">继续下一章</span>') != -1:
         if choose_type == '-1' or choose_type == '0':
             print('\n下一章。\n')
@@ -391,13 +394,24 @@ def Click_next():
 
 #返回章节
 def Exit_chapter():
-    try:
-        driver.find_element_by_xpath('//span[@data-bind="text: i18nMessageText().backToCourse"]').click()
-    except:
-        if driver.page_source.find('<span class="back btn-text" data-bind="text: i18nMessageText().backToCourse">返回课程章节</span>') != -1:
-            driver.get(url)
-        else:
-            pass
+    while True:
+        try:
+            driver.find_element_by_xpath('//span[@data-bind="text: i18nMessageText().backToCourse"]').click()
+            break
+        except:
+            try:
+                driver.find_element_by_xpath('//span[@class="back btn-text"]').click()
+                break
+            except:
+                try:
+                    driver.find_element_by_xpath('//div[@class="back-btn control-btn cursor"]').click()
+                    break
+                except:
+                    try:
+                        driver.find_element_by_xpath('//div[@data-bind="css: { \'return-url\': returnUrl }, click: $root.goBack"]').click()
+                        break
+                    except:
+                        pass
 
 if __name__ == '__main__':
     #准备登录信息
@@ -464,6 +478,11 @@ if __name__ == '__main__':
                 continue
             else:
                 break
-        
-    driver.quit()
+        Exit_chapter()
+        carry = input('是否继续（Y/n）：')
+        if carry == 'y' or carry == 'Y':
+            pass
+        else:
+            driver.quit()
+            break
 
