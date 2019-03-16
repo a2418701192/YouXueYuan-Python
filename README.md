@@ -9,7 +9,7 @@
 * 不要最小化，否则可能无法模拟点击
 * 默认无声！！！
   
-### 最后  
+# 最后  
 写这程序主要是闲的没事干，碰巧看到GitHub的[Fuck-XueXiQiangGuo](https://github.com/fuck-xuexiqiangguo/Fuck-XueXiQiangGuo)项目🤪  
 然后就想自己也实现一下  
 本人没系统学过Python，都是自学的  
