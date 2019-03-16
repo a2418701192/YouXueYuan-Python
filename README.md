@@ -1,4 +1,4 @@
-# Brush-youxueyuan
+# Brush-YouXueYuan
 
 ### chromedriver.exe与程序放在同一目录 ###
 #### chromedriver.exe 也可以在 http://chromedriver.chromium.org/downloads 下载 ####
@@ -11,7 +11,7 @@
 禁止滥用  
   
   
-最后  
+### 最后 ###  
 写这程序主要是闲的没事干，碰巧看到GitHub的[Fuck-XueXiQiangGuo](https://github.com/fuck-xuexiqiangguo/Fuck-XueXiQiangGuo)项目🤪  
 然后就想自己也实现一下  
 本人没系统学过Python，都是自学的  
