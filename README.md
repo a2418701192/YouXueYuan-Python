@@ -21,8 +21,4 @@
 禁止滥用  
   
 # 日志
-## 19.3.17 
-* 浏览器可以无窗口运行
-* 修改一处逻辑错误
-## 19.3.16
-* 上传第一份
+[CHANGELOG.md](https://github.com/Brush-JIM/YouXueYuan/blob/master/CHANGELOG.md)
