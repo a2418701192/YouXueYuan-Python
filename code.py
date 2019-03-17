@@ -162,8 +162,10 @@ def Choose_name(url):
 def Click_name(choose):
     if choose == True:
         print('课程完成。')
+        return None
     else:
         driver.find_element_by_xpath('//div[@onclick="' + choose + '"]').click()
+        return True
 
 #跳过提示框
 def Close_tips():
@@ -510,28 +512,31 @@ if __name__ == '__main__':
         Jump2class()
         url = Choose_course()
         choose_name = Choose_name(url)
-        Click_name(choose_name)
-        while True:
-            Close_tips()
-            Close_guid()
-            Close_mune()
-            check_video = Check_video()
-            if check_video == True:
-                Adjust_player()
-                Check_done()
-            elif check_video == False:
+        click_name = Click_name(choose_name)
+        if click_name == True:
+            while True:
+                Close_tips()
+                Close_guid()
+                Close_mune()
+                check_video = Check_video()
+                if check_video == True:
+                    Adjust_player()
+                    Check_done()
+                elif check_video == False:
+                    if Next_page() == True:
+                        Click_next()
+                        continue
+                    else:
+                        break
+                else:
+                    print('未知类型。')
                 if Next_page() == True:
-                    Click_next()
                     continue
                 else:
                     break
-            else:
-                print('未知类型。')
-            if Next_page() == True:
-                continue
-            else:
-                break
-        Exit_chapter()
+            Exit_chapter()
+        else:
+            pass
         carry = input('是否继续（Y/n）：')
         if carry == 'y' or carry == 'Y':
             pass
