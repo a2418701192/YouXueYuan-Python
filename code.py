@@ -527,11 +527,6 @@ if __name__ == '__main__':
                     break
             else:
                 print('未知类型。')
-                driver.save_screenshot("codingpy.png")
-                with open('error.html','w',encoding = 'utf-8') as error:
-                    error.write(driver.page_source)
-                print (driver.current_url)
-                input('next')
             if Next_page() == True:
                 continue
             else:
