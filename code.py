@@ -68,7 +68,7 @@ def Login():
     if Check_login() == True:
         pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
         with open('data.json','w') as data:
-            data.write(json.dumps({'username':username,'password':password}))
+            data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
         return True
     else:
         return False
@@ -420,15 +420,68 @@ if __name__ == '__main__':
             data = json.loads(data.read())
             username = data['username']
             password = data['password']
+        #决定隐藏窗口
+        try:
+            save = data['save']
+            if save == True:
+                headless = data['headless']
+            else:
+                headless = input('是否隐藏窗口（Y/n）：')
+                if headless == 'y' or headless == 'Y':
+                    headless = True
+                else:
+                    headless = False
+                save = input('是否保存该设置（Y/n）：')
+                if save == 'y' or save == 'Y':
+                    save = True
+                else:
+                    save = False
+        except:
+            headless = input('是否隐藏窗口（Y/n）：')
+            if headless == 'y' or headless == 'Y':
+                headless = True
+            else:
+                headless = False
+            save = input('是否保存该设置（Y/n）：')
+            if save == 'y' or save == 'Y':
+                save = True
+            else:
+                save = False
+        with open('data.json','w') as data:
+            data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
     except:
         username = input('账号：')
         password = getpass.getpass('密码（光标不可见）：')
+        #决定隐藏窗口
+        headless = input('是否隐藏窗口（Y/n）：')
+        if headless == 'y' or headless == 'Y':
+            headless = True
+        else:
+            headless = False
+        save = input('是否保存该设置（Y/n）：')
+        if save == 'y' or save == 'Y':
+            save = True
+        else:
+            save = False
+        with open('data.json','w') as data:
+            data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
     #准备chrome
     chrome_options = webdriver.ChromeOptions()
-    #chrome_options.add_argument('--headless')
+    if headless == True:
+        chrome_options.add_argument('--headless')
+    else:
+        pass
+    #我也不确定是啥，但是我这里要这条才能用headless模式
     chrome_options.add_argument('--disable-gpu')
+    #静音
     chrome_options.add_argument("--mute-audio")
     chrome_options.add_argument('log-level=3')
+    #我也不知道设置多少最好，只是为了所有元素都一页显示、不用滚动条，虽然程序已经可以定位到元素再点击
+    chrome_options.add_argument('--window-size=4000,2000')
+    chrome_options.add_argument('--window-position=800,0')
+    #设置navigator.userAgent，优学院检测navigator.userAgent，如果不正常会返回异常页面：https://ua.ulearning.cn/learnCourse/compatibility.html
+    #检测的js脚本是“plugins.js”
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36")
     chromedriver = Path(".\chromedriver.exe")
     if not chromedriver.is_file():
         input('chromedriver.exe文件找不到，请将chromedriver.exe放至程序同目录下。\n回车结束。')
@@ -474,6 +527,11 @@ if __name__ == '__main__':
                     break
             else:
                 print('未知类型。')
+                driver.save_screenshot("codingpy.png")
+                with open('error.html','w',encoding = 'utf-8') as error:
+                    error.write(driver.page_source)
+                print (driver.current_url)
+                input('next')
             if Next_page() == True:
                 continue
             else:
