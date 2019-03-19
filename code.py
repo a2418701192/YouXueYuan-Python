@@ -417,6 +417,22 @@ def Exit_chapter():
                     except:
                         pass
 
+#更新数据
+def Updata():
+    #是否隐藏窗口
+    headless = input('是否隐藏窗口（Y/n）：')
+    if headless == 'y' or headless == 'Y':
+        headless = True
+    else:
+        headless = False
+    save = input('是否保存该设置（Y/n）：')
+    if save == 'y' or save == 'Y':
+        save = True
+    else:
+        save = False
+    with open('data.json','w') as data:
+        data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
+
 if __name__ == '__main__':
     #准备登录信息
     try:
@@ -424,51 +440,19 @@ if __name__ == '__main__':
             data = json.loads(data.read())
             username = data['username']
             password = data['password']
-        #决定隐藏窗口
-        try:
-            save = data['save']
-            if save == True:
+            try:
+                save = data['save']
                 headless = data['headless']
-            else:
-                headless = input('是否隐藏窗口（Y/n）：')
-                if headless == 'y' or headless == 'Y':
-                    headless = True
+                if save == True:
+                    pass
                 else:
-                    headless = False
-                save = input('是否保存该设置（Y/n）：')
-                if save == 'y' or save == 'Y':
-                    save = True
-                else:
-                    save = False
-        except:
-            headless = input('是否隐藏窗口（Y/n）：')
-            if headless == 'y' or headless == 'Y':
-                headless = True
-            else:
-                headless = False
-            save = input('是否保存该设置（Y/n）：')
-            if save == 'y' or save == 'Y':
-                save = True
-            else:
-                save = False
-        with open('data.json','w') as data:
-            data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
+                    Updata()
+            except:
+                Updata()
     except:
         username = input('账号：')
         password = getpass.getpass('密码（光标不可见）：')
-        #决定隐藏窗口
-        headless = input('是否隐藏窗口（Y/n）：')
-        if headless == 'y' or headless == 'Y':
-            headless = True
-        else:
-            headless = False
-        save = input('是否保存该设置（Y/n）：')
-        if save == 'y' or save == 'Y':
-            save = True
-        else:
-            save = False
-        with open('data.json','w') as data:
-            data.write(json.dumps({'username':username,'password':password,'headless':headless,'save':save}))
+        Updata()
     #准备chrome
     chrome_options = webdriver.ChromeOptions()
     if headless == True:
