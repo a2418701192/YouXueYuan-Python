@@ -531,7 +531,7 @@ if __name__ == '__main__':
                     else:
                         break
                 elif check_video == 'error':
-                    print('不兼容，可能检测到异常\n请尝试有界面浏览器（打开data.json文件将“"headless": false”改为“"headless": true”）')
+                    print('不兼容，可能检测到异常\n请尝试有界面浏览器（打开data.json文件将“"headless": true”改为“"headless": false”）')
                     input('回车退出')
                     sys.exit()
                 else:
