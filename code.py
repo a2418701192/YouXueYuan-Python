@@ -254,6 +254,8 @@ def Check_video():
     elif code.find('page-content') != -1:
         print('文章。')
         return False
+    elif code.find('<title>浏览器兼容性提示</title>') != -1 or code.find('检测到您在使用旧版或系统不支持的浏览器') != -1:
+        return 'error'
     else:
         return None
 
@@ -528,6 +530,10 @@ if __name__ == '__main__':
                         continue
                     else:
                         break
+                elif check_video == 'error':
+                    print('不兼容，可能检测到异常\n请尝试有界面浏览器（打开data.json文件将“"headless": false”改为“"headless": true”）')
+                    input('回车退出')
+                    sys.exit()
                 else:
                     print('未知类型。')
                 if Next_page() == True:
