@@ -470,7 +470,7 @@ if __name__ == '__main__':
     if not chromedriver.is_file():
         input('chromedriver.exe文件找不到，请将chromedriver.exe放至程序同目录下。\n回车结束。')
         sys.exit()
-    driver = webdriver.Chrome(chrome_options=chrome_options,executable_path = '.\chromedriver.exe')
+    driver = webdriver.Chrome(chrome_options=chrome_options,executable_path = 'chromedriver.exe')
     driver.get('https://www.ulearning.cn/ulearning/index.html#/index/portal')
     
     if Load_cookies() == True:
