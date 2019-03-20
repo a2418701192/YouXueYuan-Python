@@ -2,11 +2,12 @@
   
 只用来看“优学院”视频  
 # 食用方法  
-* 3.20 发现打包的程序在别的电脑不能运行，大概是没有装好环境，所以就删除了程序😅  
-①~~如果想用现成程序，请下载“成品.exe”；如果想py文件运行，~~请下载“run.py”  
-②将“chromedriver.exe”放到~~与“成品.exe”或~~“run.py”同目录下  
+* 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome，chromedriver.exe  
+  ⚠run.exe在本人电脑成功测试，但未在其他电脑测试，所以不确保无问题  
+①如果想用现成程序，请下载“run.exe”；如果想py文件运行，请下载“run.py”  
+②将“chromedriver.exe”放到与“run.exe”或“run.py”同目录下（19.3.20 理论将chromedriver.exe打包进run.exe，不行再下“chromedriver.exe”）  
 ③chromedriver.exe好像依赖Google chrome浏览器，所以Google chrome浏览器最好一并装上  
-④运行~~“成品.exe”或~~“run.py”  
+④运行“run.exe”或“run.py”  
 
 # 用时注意
 * chromedriver.exe与程序放在同一目录  
