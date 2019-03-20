@@ -2,10 +2,11 @@
   
 只用来看“优学院”视频  
 # 食用方法  
-①如果想用现成程序，请下载“成品.exe”；如果想py文件运行，请下载“run.py”  
-②将“chromedriver.exe”放到与“成品.exe”或“run.py”同目录下  
+* 3.20 发现打包的程序在别的电脑不能运行，大概是没有装好环境，所以就删除了程序😅  
+①~~如果想用现成程序，请下载“成品.exe”；如果想py文件运行，~~请下载“run.py”  
+②将“chromedriver.exe”放到~~与“成品.exe”或~~“run.py”同目录下  
 ③chromedriver.exe好像依赖Google chrome浏览器，所以Google chrome浏览器最好一并装上  
-④运行“成品.exe”或“run.py”  
+④运行~~“成品.exe”或~~“run.py”  
 
 # 用时注意
 * chromedriver.exe与程序放在同一目录  
