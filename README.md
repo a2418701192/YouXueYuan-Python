@@ -2,18 +2,18 @@
   
 只用来看“优学院”视频  
 # 食用方法  
-* 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome，chromedriver.exe  
-  ⚠run.exe在本人电脑成功测试，但未在其他电脑测试，所以不确保无问题  
-①如果想用现成程序，请下载“run.exe”；如果想py文件运行，请下载“run.py”  
-②将“chromedriver.exe”放到与“run.exe”或“run.py”同目录下（19.3.20 理论将chromedriver.exe打包进run.exe，不行再下“chromedriver.exe”）  
-③chromedriver.exe好像依赖Google chrome浏览器，所以Google chrome浏览器最好一并装上  
-④运行“run.exe”或“run.py”  
+* 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome 73.0.3683.86 64位，chromedriver.exe  
+  ⚠run_73.exe和run_74.exe在本人电脑成功测试，但未在其他电脑测试，所以不确保无问题  
+①如果想用现成程序，请下载“run_\*.exe”；如果想py文件运行，请下载“run.py”  
+  run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版，但是最后测试时两个都能用  
+②运行“run_\*.exe”或“run.py”  
 
 # 用时注意
-* chromedriver.exe与程序放在同一目录  
-  chromedriver.exe 也可以在 http://chromedriver.chromium.org/downloads 下载  
-* 不知道不装Google chrome 能不能用 chromedriver，如果用不了，请把[Google chrome](https://www.google.com/chrome/)也装上  
-* [成品.exe](https://github.com/Brush-YXY/Brush-YouXueYuan/blob/master/%E6%88%90%E5%93%81.exe)是在Windows10 x64 环境下，使用[pyinstaller](https://github.com/pyinstaller/pyinstaller)打包，所以x86不知道能不能运行
+* ~~chromedriver.exe与程序放在同一目录~~ （[19.3.21](https://github.com/Brush-JIM/YouXueYuan/blob/master/CHANGELOG.md#19321)已解决问题）  
+  chromedriver.exe 也可以在 [https://sites.google.com/a/chromium.org/chromedriver/](https://sites.google.com/a/chromium.org/chromedriver/) 下载  
+* ~~不知道不装Google chrome 能不能用 chromedriver，如果用不了，请把[Google chrome](https://www.google.com/chrome/)也装上~~  
+  Google chrome 必须装，请装73及以上版本，一般在线安装都>=73  
+* run_\*.exe是在Windows10 x64 环境下，使用[pyinstaller](https://github.com/pyinstaller/pyinstaller)打包，所以x86理论上不能运行
 * ~~不要最小化，否则可能无法模拟点击~~ （[19.3.17](https://github.com/Brush-JIM/YouXueYuan/blob/master/CHANGELOG.md#19317)已解决此问题）
 * 默认无声！！！
   
