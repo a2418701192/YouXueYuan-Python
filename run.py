@@ -6,6 +6,7 @@ import time,re,json,pickle,sys,os,getpass
 from collections import OrderedDict
 from bs4 import BeautifulSoup
 from pathlib import Path
+import chromedriver_binary
 
 #该程序灵感来源于GitHub的 Fuck-XueXiQiangGuo 项目
 #然后就想自己也实现一下  
@@ -453,6 +454,7 @@ if __name__ == '__main__':
     chrome_options = webdriver.ChromeOptions()
     if headless == True:
         chrome_options.add_argument('--headless')
+        pass
     else:
         pass
     #我也不确定是啥，但是我这里要这条才能用headless模式
@@ -464,13 +466,8 @@ if __name__ == '__main__':
     chrome_options.add_argument('--window-size=4000,2000')
     chrome_options.add_argument('--window-position=800,0')
     #设置navigator.userAgent，优学院检测navigator.userAgent，如果不正常会返回异常页面：https://ua.ulearning.cn/learnCourse/compatibility.html
-    #检测的js脚本是“plugins.js”
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36")
-    chromedriver = Path(".\chromedriver.exe")
-    if not chromedriver.is_file():
-        input('chromedriver.exe文件找不到，请将chromedriver.exe放至程序同目录下。\n回车结束。')
-        sys.exit()
-    driver = webdriver.Chrome(chrome_options=chrome_options,executable_path = 'chromedriver.exe')
+    driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get('https://www.ulearning.cn/ulearning/index.html#/index/portal')
     
     if Load_cookies() == True:
