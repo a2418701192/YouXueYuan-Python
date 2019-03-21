@@ -1,4 +1,8 @@
 # 日志
+## 19.3.21  
+* 由于Google chrome更新，导致打包后chromedriver时不时抛出异常说不支持浏览器版本（73.0.3683.86），所以用chromedriver73和chromedriver74分别打包两个程序（run_73.exe和run_74.exe），但是最后测试时两个都能用，无异常🤬  
+* 打包程序已经将chromedriver.exe打包进run_\*.exe，本人测试成功，所以理论上不用下载chromedriver.exe  
+* 目前正在改进代码，但是由于激进地对网页源代码进行删改（因为能简化代码，减少维护复杂），导致遇到复杂问题，现在也只是临时方法解决  
 ## 19.3.20  
 * 成品.exe文件更名为run.exe，理论上将chromedriver.exe打包进run.exe  
 ## 19.3.20  
