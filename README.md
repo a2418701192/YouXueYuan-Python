@@ -1,7 +1,7 @@
 # 优学院-YouXueYuan
   
 只用来看“优学院”视频  
-# 课太多、学不好，暂时没精力理了 ——19.3.22  
+
 # 食用方法  
 * 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome 73.0.3683.86 64位，chromedriver.exe  
   ⚠run_73.exe和run_74.exe在本人电脑成功测试，但未在其他电脑测试，所以不确保无问题  
