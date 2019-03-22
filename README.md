@@ -4,18 +4,15 @@
 
 # 食用方法  
 * 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome 73.0.3683.86 64位，chromedriver.exe  
-  ⚠run_73.exe和run_74.exe在本人电脑成功测试，但未在其他电脑测试，所以不确保无问题  
 ①如果想用现成程序，请下载“run_\*.exe”；如果想py文件运行，请下载“run.py”  
-  run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版，但是最后测试时两个都能用  
+  run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版  
 ②运行“run_\*.exe”或“run.py”  
 
 # 用时注意
-* ~~chromedriver.exe与程序放在同一目录~~ （[19.3.21](https://github.com/Brush-JIM/YouXueYuan/blob/master/CHANGELOG.md#19321)已解决问题）  
-  chromedriver.exe 也可以在 [https://sites.google.com/a/chromium.org/chromedriver/](https://sites.google.com/a/chromium.org/chromedriver/) 下载  
-* ~~不知道不装Google chrome 能不能用 chromedriver，如果用不了，请把[Google chrome](https://www.google.com/chrome/)也装上~~  
-  Google chrome 必须装，请装73及以上版本，一般在线安装都>=73  
+⚠虽然浏览器版本是73，但是run_73.exe和run_74.exe在本人电脑成功测试；可是未在其他电脑测试，所以不确保无问题  
+⚠程序已经打包集合了chromedriver，经本人测试发现，如果同目录下有chromedriver，则会优先加载同目录下的chromedriver，而不会加载程序打包的chromedriver  
+* Google chrome 必须装，请装73及以上版本，一般在线安装都>=73  
 * run_\*.exe是在Windows10 x64 环境下，使用[pyinstaller](https://github.com/pyinstaller/pyinstaller)打包，所以x86理论上不能运行
-* ~~不要最小化，否则可能无法模拟点击~~ （[19.3.17](https://github.com/Brush-JIM/YouXueYuan/blob/master/CHANGELOG.md#19317)已解决此问题）
 * 默认无声！！！
   
 # 日志
