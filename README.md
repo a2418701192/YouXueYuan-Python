@@ -4,9 +4,8 @@
 
 # 食用方法  
 * 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome 73.0.3683.86 64位，chromedriver.exe  
-①如果想用现成程序，请下载“run_\*.exe”；如果想py文件运行，请下载“run.py”  
-  run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版  
-②运行“run_\*.exe”或“run.py”  
+①下载“run_73.exe”或“run_74.exe”；run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版  
+②运行程序  
 
 # 用时注意
 ⚠虽然浏览器版本是73，但是run_73.exe和run_74.exe在本人电脑成功测试；可是未在其他电脑测试，所以不确保无问题  
