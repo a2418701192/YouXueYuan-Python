@@ -1,7 +1,7 @@
-# 优学院-YouXueYuan
+# 优学院-YouXueYuan-Python
   
 只用来看“优学院”视频  
-
+[JavaScript版已经出来啦——19.3.23](https://github.com/Brush-JIM/YouXueYuan-JavaScript)
 # 食用方法  
 * 本人电脑环境：Windows10 x64 Enterprise，Python3，Google chrome 73.0.3683.86 64位，chromedriver.exe  
 ①下载“run_73.exe”或“run_74.exe”；run_73.exe对应Google chrome 73版，run_74.exe对应Google chrome 74版  
@@ -26,4 +26,4 @@
 ---
 代码开源  
 免费  
-禁止滥用  
+不接受任何、任意捐赠  
